@@ -4,9 +4,7 @@ files, which will be converted into a single .mat (MATLAB array) file
 containing all of the scan data.
 
 call the script in this way
-python3 scan_slk_mat.py t/l/d speed(mm/sec) x_gap(mm)
-    2nd arg movement speed of y axis stepper during scan (so gap is computed
-    as speed/10; laser records a profile every 10th of a second)
+python3 scan_slk_mat.py scan_dir y_space(mm) x_space(mm)
 """
 
 import sylk_parser
@@ -35,12 +33,10 @@ import numpy
 #     |
 #     |-new_0001.slk (etc etc)
 
-SCANS_PER_SECOND = 10
-
 def main():
-    # ensure user has specified a filename (2 arguements)
+    # no args, give hint
     if len(sys.argv) < 2:
-        print("no top-level folder given")
+        print("Usage: python3 scan_slk_to_mat.py scan_dir y_space(mm) x_space(mm)")
         return
 
     # now validate folder name
@@ -60,19 +56,16 @@ def main():
     
     # y-stepper speed
     if len(sys.argv) < 3:
-        print("No y direction scan speed given")
+        print("No y direction scan space given")
         return
 
 
     # assign scan speed
     try:
-        y_scan_speed = float(sys.argv[2])
+        y_offset_distance = float(sys.argv[2])
     except:
-        print("Invalid scan speed given (float needed)")
+        print("Invalid scan space given (float needed)")
         return
-
-    # compute y offset distance
-    y_offset_distance = y_scan_speed/SCANS_PER_SECOND
     
     # x offset distance
     if len(sys.argv) < 4:
@@ -129,10 +122,10 @@ def main():
             # iterate through lines in parsed file
             for data_line in parser.sylk_handler.data:
 
-                current_x_position = float(data_line[0]) + current_x_offset
+                current_x_position = float(data_line[0])
                 current_z_posistion = float(data_line[1])
 
-                data_array.append([current_x_position,current_y_position,current_z_posistion])
+                data_array.append([current_x_position, current_y_position, current_z_posistion, current_x_offset])
 
             current_y_position += y_offset_distance
 
