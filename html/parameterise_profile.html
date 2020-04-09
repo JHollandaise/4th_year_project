@@ -1,0 +1,163 @@
+
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html><head>
+      <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+   <!--
+This HTML was auto-generated from MATLAB code.
+To make changes, update the MATLAB code and republish this document.
+      --><title>parameterise_profile</title><meta name="generator" content="MATLAB 9.8"><link rel="schema.DC" href="http://purl.org/dc/elements/1.1/"><meta name="DC.date" content="2020-04-08"><meta name="DC.source" content="parameterise_profile.m"><style type="text/css">
+html,body,div,span,applet,object,iframe,h1,h2,h3,h4,h5,h6,p,blockquote,pre,a,abbr,acronym,address,big,cite,code,del,dfn,em,font,img,ins,kbd,q,s,samp,small,strike,strong,sub,sup,tt,var,b,u,i,center,dl,dt,dd,ol,ul,li,fieldset,form,label,legend,table,caption,tbody,tfoot,thead,tr,th,td{margin:0;padding:0;border:0;outline:0;font-size:100%;vertical-align:baseline;background:transparent}body{line-height:1}ol,ul{list-style:none}blockquote,q{quotes:none}blockquote:before,blockquote:after,q:before,q:after{content:'';content:none}:focus{outine:0}ins{text-decoration:none}del{text-decoration:line-through}table{border-collapse:collapse;border-spacing:0}
+
+html { min-height:100%; margin-bottom:1px; }
+html body { height:100%; margin:0px; font-family:Arial, Helvetica, sans-serif; font-size:10px; color:#000; line-height:140%; background:#fff none; overflow-y:scroll; }
+html body td { vertical-align:top; text-align:left; }
+
+h1 { padding:0px; margin:0px 0px 25px; font-family:Arial, Helvetica, sans-serif; font-size:1.5em; color:#d55000; line-height:100%; font-weight:normal; }
+h2 { padding:0px; margin:0px 0px 8px; font-family:Arial, Helvetica, sans-serif; font-size:1.2em; color:#000; font-weight:bold; line-height:140%; border-bottom:1px solid #d6d4d4; display:block; }
+h3 { padding:0px; margin:0px 0px 5px; font-family:Arial, Helvetica, sans-serif; font-size:1.1em; color:#000; font-weight:bold; line-height:140%; }
+
+a { color:#005fce; text-decoration:none; }
+a:hover { color:#005fce; text-decoration:underline; }
+a:visited { color:#004aa0; text-decoration:none; }
+
+p { padding:0px; margin:0px 0px 20px; }
+img { padding:0px; margin:0px 0px 20px; border:none; }
+p img, pre img, tt img, li img, h1 img, h2 img { margin-bottom:0px; }
+
+ul { padding:0px; margin:0px 0px 20px 23px; list-style:square; }
+ul li { padding:0px; margin:0px 0px 7px 0px; }
+ul li ul { padding:5px 0px 0px; margin:0px 0px 7px 23px; }
+ul li ol li { list-style:decimal; }
+ol { padding:0px; margin:0px 0px 20px 0px; list-style:decimal; }
+ol li { padding:0px; margin:0px 0px 7px 23px; list-style-type:decimal; }
+ol li ol { padding:5px 0px 0px; margin:0px 0px 7px 0px; }
+ol li ol li { list-style-type:lower-alpha; }
+ol li ul { padding-top:7px; }
+ol li ul li { list-style:square; }
+
+.content { font-size:1.2em; line-height:140%; padding: 20px; }
+
+pre, code { font-size:12px; }
+tt { font-size: 1.2em; }
+pre { margin:0px 0px 20px; }
+pre.codeinput { padding:10px; border:1px solid #d3d3d3; background:#f7f7f7; }
+pre.codeoutput { padding:10px 11px; margin:0px 0px 20px; color:#4c4c4c; }
+pre.error { color:red; }
+
+@media print { pre.codeinput, pre.codeoutput { word-wrap:break-word; width:100%; } }
+
+span.keyword { color:#0000FF }
+span.comment { color:#228B22 }
+span.string { color:#A020F0 }
+span.untermstring { color:#B20000 }
+span.syscmd { color:#B28C00 }
+span.typesection { color:#A0522D }
+
+.footer { width:auto; padding:10px 0px; margin:25px 0px 0px; border-top:1px dotted #878787; font-size:0.8em; line-height:140%; font-style:italic; color:#878787; text-align:left; float:none; }
+.footer p { margin:0px; }
+.footer a { color:#878787; }
+.footer a:hover { color:#878787; text-decoration:underline; }
+.footer a:visited { color:#878787; }
+
+table th { padding:7px 5px; text-align:left; vertical-align:middle; border: 1px solid #d6d4d4; font-weight:bold; }
+table td { padding:7px 5px; text-align:left; vertical-align:top; border:1px solid #d6d4d4; }
+
+
+
+
+
+  </style></head><body><div class="content"><pre class="codeinput"><span class="keyword">function</span> profile_parameters = parameterise_profile(profile_mesh, n, y_start, y_end)
+<span class="comment">% rename mesh input to cleanup</span>
+x_mesh = profile_mesh.x_mesh;
+y_mesh = profile_mesh.y_mesh;
+z_mesh = profile_mesh.z_mesh;
+
+<span class="comment">% profile parameter matricies for filled bump i (x direction) and profile</span>
+<span class="comment">% j (y (or time) direction)</span>
+
+<span class="comment">% trough location indecies (t_x,t_y)_ij</span>
+t = [];
+<span class="comment">% peak locations indecies(p_x,p_y)_ij</span>
+p = [];
+<span class="comment">% horizontal location d_ij</span>
+d = [];
+<span class="comment">% vertical location v_ij</span>
+v = [];
+<span class="comment">% width w_ij</span>
+w = [];
+<span class="comment">% height h_ij</span>
+h = [];
+<span class="comment">% trough difference r_ij</span>
+r = [];
+
+<span class="comment">% next, we show the user the first profile line and request they</span>
+<span class="comment">% select the initial trough locations</span>
+x = x_mesh(y_start,:)';
+z = z_mesh(y_start,:)';
+scatter(x,z);
+g = ginput(n+1);
+D = pdist2([x z],g);
+[~,t_i] = min(D);               <span class="comment">% indices</span>
+hold <span class="string">on</span>
+plot(x_mesh(1,ix),z_mesh(1,ix),<span class="string">'or'</span>)
+hold <span class="string">off</span>
+
+
+<span class="comment">% now we loop through all of the profiles and find the parameters</span>
+<span class="keyword">for</span> i=y_start:y_end
+    <span class="comment">% find new local minimum for all trough locations</span>
+    [~,t_i] = min(z_mesh(i,
+<span class="keyword">end</span>
+<span class="keyword">end</span>
+</pre><pre class="codeoutput error">Error using dbstatus
+Error: File: /Volumes/work/project/surface_scanning/parameterise_profile.m Line: 41 Column: 28
+Invalid expression. When calling a function or indexing a variable, use parentheses. Otherwise, check for mismatched delimiters.
+</pre><p class="footer"><br><a href="https://www.mathworks.com/products/matlab/">Published with MATLAB&reg; R2020a</a><br></p></div><!--
+##### SOURCE BEGIN #####
+function profile_parameters = parameterise_profile(profile_mesh, n, y_start, y_end)
+% rename mesh input to cleanup
+x_mesh = profile_mesh.x_mesh;
+y_mesh = profile_mesh.y_mesh;
+z_mesh = profile_mesh.z_mesh;
+
+% profile parameter matricies for filled bump i (x direction) and profile
+% j (y (or time) direction)
+
+% trough location indecies (t_x,t_y)_ij
+t = [];
+% peak locations indecies(p_x,p_y)_ij
+p = [];
+% horizontal location d_ij
+d = [];
+% vertical location v_ij
+v = [];
+% width w_ij
+w = [];
+% height h_ij
+h = [];
+% trough difference r_ij
+r = [];
+
+% next, we show the user the first profile line and request they
+% select the initial trough locations
+x = x_mesh(y_start,:)';
+z = z_mesh(y_start,:)';
+scatter(x,z);
+g = ginput(n+1);
+D = pdist2([x z],g);
+[~,t_i] = min(D);               % indices
+hold on
+plot(x_mesh(1,ix),z_mesh(1,ix),'or')
+hold off
+
+
+% now we loop through all of the profiles and find the parameters
+for i=y_start:y_end
+    % find new local minimum for all trough locations
+    [~,t_i] = min(z_mesh(i,
+end
+end
+
+##### SOURCE END #####
+--></body></html>

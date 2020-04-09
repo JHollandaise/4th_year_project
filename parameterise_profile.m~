@@ -80,28 +80,25 @@ for j=1:y_end-y_start
     for i=1:n+1
         % temporary const for r imbalance
         r_lim = 1;
-        % temparary const for h imbalance
-        h_min = 0.3;
         
         
         % r left positive and r right negative variables
-        r_rn = false;
-        r_lp = false;
-            if i==1 && (h(i,j) < h_min)
-                r_rn = r(i,j) < r_lim;
-                r_lp = ~r_rn;
-            elseif i==n+1 && (h(i-1,j) < h_min)
-                r_lp = r(i-1,j) > r_lim;
-                r_rn = ~r_lp;
-            elseif i~=1 && i~=n+1 && (h(i-1,j) < h_min) && (h(i,j) < h_min)
-                r_lp = r(i-1,j) > r_lim;
-                r_rn = r(i,j) < r_lim;
-            end
+        r_rn 
+        if i==1
+            r_rn = r(i,j) < r_lim;
+            r_lp = ~r_rn;
+        elseif i==n+1
+            r_lp = r(i-1,j) > r_lim;
+            r_rn = ~r_lp;
+        else
+            r_lp = r(i-1,j) > r_lim;
+            r_rn = r(i,j) < r_lim;
+        end
         
         if and(r_lp,r_rn)
             [~,I] = max(z_mesh(j+y_start,s_l(i,j):s_u(i,j)));
         elseif xor(r_lp,r_rn)
-            I = round(ti(i,j) + w_d(i,j)) - s_l(i,j)+1;
+            I = round(ti(i,j) + w_d(i,j));
         else
             [~,I] = min(z_mesh(j+y_start,s_l(i,j):s_u(i,j)));
         end
