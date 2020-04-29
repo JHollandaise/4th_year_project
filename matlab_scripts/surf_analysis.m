@@ -1,10 +1,10 @@
 %% initialise globals
-scan_name = FBU_01_01;
-save_name = "FBU_01_01";
+scan_name = FBN_01_03_2;
+save_name = "FBN_01_03_0";
 
 %% plot simple scatter3 of scan
 % NOTE: columns: (x_pos, y_pos, z_pos, x_offset)
-scatter3(scan_name(1:100:end,1)+scan_name(1:100:end,4),scan_name(1:100:end,2),scan_name(1:100:end,3),1,scan_name(1:100:end,3));
+scatter3(scan_name(1:20:end,1)+scan_name(1:20:end,4),scan_name(1:20:end,2),scan_name(1:20:end,3),1,scan_name(1:20:end,3));
 % xlim([-40 20]);
 % ylim([53 90]);
 % zlim

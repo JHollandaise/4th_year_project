@@ -2,5 +2,5 @@ x_space = 27
 y_space = 0.5
 x_samples = 6
 y_samples = 341
-x_initial = 25 (-1)
-Y_initial = 70 (-5)
+x_initial = 25
+Y_initial = 70
