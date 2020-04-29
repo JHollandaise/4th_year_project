@@ -48,12 +48,12 @@ def main():
     # eg: '/Users/.../.../.../200220_00'
     top_level_path = os.path.realpath(sys.argv[1])
     # assign name for .mat file (is the folder name)
-    # eg: '200220_00'
+    # eg: 'FBN_01_01'
     mat_array_name = os.path.split(top_level_path)[1]
 
 
     ## now see if the user has given the other optional parameters
-    
+
     # y-stepper speed
     if len(sys.argv) < 3:
         print("No y direction scan space given")
@@ -66,7 +66,7 @@ def main():
     except:
         print("Invalid scan space given (float needed)")
         return
-    
+
     # x offset distance
     if len(sys.argv) < 4:
         print("No x offset given")
@@ -79,8 +79,8 @@ def main():
     except:
         print("Invalid x offset given (float needed)")
         return
-    
-    
+
+
 
     # now get the list of subfolder names in the TLD
     scan_folder_list = []
@@ -101,7 +101,7 @@ def main():
     # iterate through the folders
     for scan_folder in scan_folder_list:
 
-        current_y_position = 0 
+        current_y_position = 0
         # now get the list of scan file names in the scan folder
         scan_file_list = []
         for name in os.listdir(os.path.join(top_level_path,scan_folder)):
@@ -109,13 +109,13 @@ def main():
             if os.path.isfile(os.path.join(top_level_path,scan_folder,name)):
                 scan_file_list.append(name)
         scan_file_list.sort()
-        
+
         # DEBUG: print sfl
         # print(scan_file_list)
 
         # iterate though the scan files
         for scan_file in scan_file_list:
-            
+
             # parse scan file
             parser = sylk_parser.SylkParser(os.path.join(top_level_path,scan_folder,scan_file))
 
@@ -131,15 +131,15 @@ def main():
 
         current_x_offset += x_offset_distance
 
-    
+
     data_array_nump = numpy.array(data_array)
     sio.savemat(top_level_path + "/" + mat_array_name + ".mat", {mat_array_name:data_array})
 
 
 
-    
 
-    
+
+
 
 
 if __name__ == "__main__":
