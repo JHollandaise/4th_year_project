@@ -4,7 +4,8 @@
 	+ Feature selection for manufacturing process monitoring using cross-validation
 		https://www.sciencedirect.com/science/article/pii/S027861251300071X
 	+ Big Data-Driven Manufacturing—Process-Monitoring-for-Quality Philosophy \/
-		https://asmedigitalcollection.asme.org/manufacturingscience/article/139/10/101009/377141/Big-Data-Driven-Manufacturing-Process-Monitoring
+		https://asmedigitalcollection.asme.org/manufacturingscience/article/139/10/101009/377141/Big-Data-Driven-Manufacturing
+- Process-Monitoring
 	+ Dynamic Textile Process and Quality Control Systems \/
 		http://dspace.lib.fcu.edu.tw/handle/2377/3907
 	+ Using Off-Line Quality Engineering in Textile Processing: Part I: Concepts and Theories  \/
