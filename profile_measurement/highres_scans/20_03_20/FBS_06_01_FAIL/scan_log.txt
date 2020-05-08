@@ -1,0 +1,6 @@
+x_space = 20
+y_space = 0.5
+x_samples = 4
+y_samples = 301
+x_initial = 96
+Y_initial = 55

@@ -1,0 +1,10 @@
+- measurements of roller setup
+    + Roller OD = 167mm
+    + Roller ID = 153mm
+    + laser to surface = 950mm
+    + camera to surface = 370mm
+
+- image spacing
+    + using graph paper mounted to surface
+    + 2mm
+    + camera mounting using weight slots

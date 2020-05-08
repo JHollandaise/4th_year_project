@@ -7,3 +7,7 @@
 ._*
 *.so
 *.o
+production_line_analysis/270120 meeting/*/*.xlsx
+production_line_analysis/270120 meeting/*.xlsx
+production_line_analysis/270120 meeting/*.xlsm
+production_line_analysis/270120 meeting/*.docx

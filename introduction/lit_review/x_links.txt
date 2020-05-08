@@ -1,0 +1,52 @@
+- production line control/optimisiation/monitoring
+	+ Design and management of manufacturing systems for production quality:
+		https://www.sciencedirect.com/science/article/pii/S000785061400184X
+	+ Feature selection for manufacturing process monitoring using cross-validation
+		https://www.sciencedirect.com/science/article/pii/S027861251300071X
+	+ Big Data-Driven Manufacturing—Process-Monitoring-for-Quality Philosophy \/
+		https://asmedigitalcollection.asme.org/manufacturingscience/article/139/10/101009/377141/Big-Data-Driven-Manufacturing-Process-Monitoring
+	+ Dynamic Textile Process and Quality Control Systems \/
+		http://dspace.lib.fcu.edu.tw/handle/2377/3907
+	+ Using Off-Line Quality Engineering in Textile Processing: Part I: Concepts and Theories  \/
+		https://journals.sagepub.com/doi/abs/10.1177/004051759206200503
+	+ Dynamic Process/Quality Control System using Structural Equations-Applications in Ring Spinning and Continuous Dyeing.
+		https://repository.lib.ncsu.edu/bitstream/handle/1840.16/9121/etd.pdf?sequence=2
+	+ Variance Tolerancing and Decomposition in Short-Staple Spinning Processes. Part II: Simulations and Applications to Ring and OE Spun Yarns \/
+		https://journals.sagepub.com/doi/abs/10.1177/004051750107100203
+	+ Variance Tolerancing and Decomposition in Short-Staple Spinning Processes: Part I: Modeling Spun Yarn Strength Through Intrinsic Components \/
+	+ Machine Learning and Pattern Recognition Techniques for Information Extraction to Improve Production Control and Design Decisions (book p. 286) \/
+		https://link.springer.com/chapter/10.1007/978-3-319-62701-4_23
+
+
+- Defect Detection
+	+ Automatic thresholding for defect detection
+		https://www.sciencedirect.com/science/article/pii/S016786550600119X
+	+ Defect detection in textured materials using Gabor filters \/
+		https://ieeexplore.ieee.org/abstract/document/993164
+	+ Computer-Vision-Based Fabric Defect Detection: A Survey \/
+		https://ieeexplore.ieee.org/abstract/document/4418522
+	+ On-line fabric defect detection and full control in a circular knitting machine \/
+		https://www.researchgate.net/profile/Hemdan_Abou-Taleb/publication/228669462_On-line_fabric_defect_detection_and_full_control_in_a_circular_knitting_machine/links/02bfe50ff0d0444386000000.pdf
+	+ Stitching defect detection and classification using wavelet transform and BP neural network
+		https://www.sciencedirect.com/science/article/pii/S0957417408001371#fig2
+	+ Defect detection and classification on web textile fabric using multiresolution decomposition and neural networks \/
+		https://ieeexplore.ieee.org/abstract/document/813221
+
+- Laser Profilometer
+	+ Evaluating Fabric Smoothness Appearance with a Laser Profilometer \/
+		https://journals.sagepub.com/doi/abs/10.1177/004051759806801204
+	+ A technology for sewer pipe inspection (Part 2): Experimental assessment of a new laser profiler for sewer defect detection and quantification
+		https://www.sciencedirect.com/science/article/pii/S092658051630334X#f0005
+	+ An Instantaneous-Profile Laser Scanner to Measure Soil Surface Microtopography \/
+		https://dl.sciencesocieties.org/publications/sssaj/abstracts/67/1/92
+
+- Stitch Bonding/Non wovens
+	+ Handbook of Non wovens
+		https://books.google.co.uk/books?hl=en&lr=&id=3rxQAwAAQBAJ&oi=fnd&pg=PA201&dq=stitch+bonding&ots=2LivE8Wb4Q&sig=ZjnJTZptb2hvJuHGenJQyHbwuVc&redir_esc=y#v=onepage&q=stitch%20bonding&f=false
+	+ Improvements in the warp-knitting process and new patterning techniques for stitch-bonded textiles \/
+		https://www.tandfonline.com/doi/full/10.1080/00405000802370354
+	+ THE PRODUCTION AND PROPERTIES OF STITCH BONDED FABRICS \/
+		https://www.tandfonline.com/doi/pdf/10.1080/00405167508688981
+		
+
+
