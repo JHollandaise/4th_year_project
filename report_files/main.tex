@@ -50,7 +50,7 @@
 
 \chapter{Introduction}
     
-    Concrete Canvas is a cement impregnated composite geotextile manufacturer. They currently have two products on the market: Concrete Canvas (CC) and CC-Hydro (CCH), both of which utilise an internal spacer fabric that provides a containment void for the cement-sand powder in-fill. The spacer is costly due to its complicated manufacturing process. In order to enter the low cost geotextiles market, Concrete Canvas are developing a new alternative product, CCX. CCX does not include the internal spacer in its structure and only uses standard, low-cost components. Instead of the spacer fabric, CCX uses two layers of stitch bonded non-woven fabric web to create a containment void for the cement-sand powder, which is aerated and injected into the void through an array of pressurised lances.
+    Concrete Canvas is a cement impregnated composite geotextile manufacturer. They currently have two products on the market: Concrete Canvas (CC) and CC-Hydro (CCH), both of which utilise an internal spacer fabric that provides a containment void for the cement-sand powder infill. The spacer is costly due to its complicated manufacturing process. In order to enter the low cost geotextiles market, Concrete Canvas are developing a new alternative product, CCX. CCX does not include the internal spacer in its structure and only uses standard, low-cost components. Instead of the spacer fabric, CCX uses two layers of stitch bonded non-woven fabric web to create a containment void for the cement-sand powder, which is aerated and injected into the void through an array of pressurised lances.
     
     CCX is in a late \tcr{the last?} stage of development, with the final production line currently being designed, constructed and tested. The development of the final line is split into three phases: web stitching, powder injection and plastic coating with a staggered \tcr{staggered or parallel??)} development timeline across the three phases. This parallel development approach allows previous sections of the line to be tested and improved while also allowing later sections to be implemented at the same time. Additionally, line testing data is heavily relied upon in order to direct the improvement of existing sections of the line. A wide range of operating parameters are recorded during test runs of the line as well as data from destructive testing of the produced material, \tcr{but no unified framework exists to facilitate the data analysis required to optimise these parameters to produce better quality material.} \tcb{I'm trying to say that there is not much organisation of test data all together, it's all over a bunch of excel spreadsheets at the moment}. 
     
@@ -72,13 +72,13 @@
         Production Line Quality control systems have been developed to enhance product quality analysis by forming structural equations to represent the manufacturing processes in order to infer unknown operating parameters, and then employing various methods to optimise the product quality such as variance tolerancing \cite{suh2007dynamic},\cite{koo2001variance} and neural-networks \cite{ohshima2000quality}.
         
     \section{Aims and Objectives}
-        This project will investigate the CCX production line and the material it produces in order to improve the understanding of the manufacturing steps and how each one develops the material characteristics. The investigation will break down each step in the production process and establish its operating mechanism, parameters that effect its operation, and also determine existing issues that result in the production of defective material. It will also explore and compare a range of measurement systems to detect such defective material.
+        This project investigated the CCX production line and the material it produces in order to improve the understanding of the manufacturing steps and how each one develops the material characteristics. The investigation broke down each step in the production process and established its operating mechanism, parameters that effect its operation, and also determine existing issues that result in the production of defective material. It also explored and compared a range of measurement systems to detect such defective material.
         
-        An investigation of the rear surface profile of the material after the powder injection step will be carried out in order to determine its key characteristics, and their distributions within both defective and non-defective material samples. Additionally, the prototype laser-line profilometer system created during the preliminary investigation will be developed further to include computationally efficient detection of the incident laser line in the video footage and identification of the key characteristics of the estimated surface profile.
+        An investigation of the rear surface profile of the material after the powder injection step was carried out in order to determine its key characteristics, and their distributions within both defective and non-defective material samples. Additionally, the prototype laser-line profilometer system created during the preliminary investigation was developed further to include computationally efficient detection of the incident laser line in the video footage and identification of the key characteristics of the estimated surface profile.
         
-        A probabilistic model will be developed to approximate the generation of the rear surface profile of the material. This model will facilitate the automated detection and characterisation of defects that exist in measured material. The system will be tested using samples of material both with and without known defects.
+        A probabilistic model was developed to approximate the generation of the rear surface profile of the material. This model facilitates the automated detection and characterisation of defects that exist in measured material. The system was tested using samples of material both with and without known defects.
         
-        A theoretical framework to unify and structure the logging of data taken from production line operation (online parameters) and destructive testing (offline parameters) will be devised. The framework will associate all measured parameters to the appropriate location on the produced material web, and will relate parameters using a hierarchical dependence structure. This framework will provide the basis for an analysis of the measured data to optimise operating parameters to maximise produced material quality.
+        A theoretical framework to unify and structure the logging of data taken from production line operation (online parameters) and destructive testing (offline parameters) was devised. The framework associates all measured parameters to the appropriate location on the produced material web, and relates parameters using a hierarchical dependence structure. This framework provides the basis for an analysis of the measured data to maximise produced material quality by optimising the production parameters.
         
         
         
@@ -101,7 +101,6 @@
         \subsection{Material}
             need to descrube what the material is, what it is made up of, it's known properties, it's projected property targets. Individual component properties, manufacturing etc.
             Non-woven surface
-            \addfigured{0.8}{example-image-c}{early manual surface measurements (where is that spreadsheet I wonder...}{surface_variation}
             \addfigured{.5}{figures/background/1x_HH_surface.jpg}{HH (upper?) non-woven surface}{hh_1x}
             \addfigured{.5}{figures/background/1x_HI_surface.jpg}{HH (lower?) non-woven surface}{hi_1x}
             \addfigured{.5}{figures/background/5x_HH_calen.jpg}{HH (upper?) non-woven surface 5x microscopic view}{hh_5x}
@@ -123,7 +122,13 @@
             
             something about machine parameters, on a large scale (lengths, widths, speeds. But at the scale of the whole line. Individual parameters are included in the full analysis.
             \addfigured{0.8}{example-image-c}{table of machine parameters}{machine_parameters}
-            
+
+\chapter{9}
+    
+    During the development of the production line, defects were found in samples of produced material. It is essential for any defects in a manufactured product to be carefully controlled for to guarantee its quality. This chapter will detail the investigation carried out to identify the types of defects that appear in the material, as well as their causal pathway. It will discuss the considerations of what measurements of the line could be made to identify these defects and the process behind the decision to use a line laser profilomter with digital camera system to detect the faults.
+    
+    
+           
 \chapter{Production Line Investigation}
     A qualitative investigation of the CCX production line was carried out in order to better understand the processes and variables involved in producing the final product. The key aim of the investigation was to identify the mechanisms responsible for producing defective material, and what additional on-line measurements could be taken in order to identify such defects automatically.
     
