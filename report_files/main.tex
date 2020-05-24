@@ -44,7 +44,7 @@ Geosynthetic Cementitious Composite Mat[ting] (GCCM) is one of a relatively new 
 
 \tableofcontents
 
-\chapter{Introduction}
+\chapter{Background and aim}
     Concrete Canvas is a cement impregnated composite geotextile manufacturer. They currently have two products on the market: Concrete Canvas (CC) and CC-Hydro (CCH), both of which utilise an internal spacer fabric that provides a containment void for the cement-sand powder infill. The spacer is costly due to its complicated manufacturing process. In order to enter the low cost geotextiles market, Concrete Canvas are developing a new alternative product, CCX. CCX does not include the internal spacer in its structure and only uses standard, low-cost components. Instead of the spacer fabric, CCX uses two layers of stitch bonded non-woven fabric web to create a containment void for the cement-sand powder, which is aerated and injected into the void through an array of pressurised lances.
     
     CCX is in a late \tcr{the last?} stage of development, with the final production line currently being designed, constructed and tested. The development of the final line is split into three phases: web stitching, powder injection and plastic coating with a staggered \tcr{staggered or parallel??)} development timeline across the three phases. This parallel development approach allows previous sections of the line to be tested and improved while also allowing later sections to be implemented at the same time. Additionally, line testing data is heavily relied upon in order to direct the improvement of existing sections of the line. A wide range of operating parameters are recorded during test runs of the line as well as data from destructive testing of the produced material, \tcr{but no unified framework exists to facilitate the data analysis required to optimise these parameters to produce better quality material.} \tcb{I'm trying to say that there is not much organisation of test data all together, it's all over a bunch of excel spreadsheets at the moment}. 
@@ -74,11 +74,6 @@ Geosynthetic Cementitious Composite Mat[ting] (GCCM) is one of a relatively new 
         A probabilistic model was developed to approximate the generation of the rear surface profile of the material. This model facilitates the automated detection and characterisation of defects that exist in measured material. The system was tested using samples of material both with and without known defects.
         
         A theoretical framework to unify and structure the logging of data taken from production line operation (online parameters) and destructive testing (offline parameters) was devised. The framework associates all measured parameters to the appropriate location on the produced material web, and relates parameters using a hierarchical dependence structure. This framework provides the basis for an analysis of the measured data to maximise produced material quality by optimising the production parameters.
-        
-        
-        
-\pagebreak
-\chapter{Background}
     
     
 % The new product, CCX, is a \tcr{extruded} plastic  coated two layer stitch-bonded non-woven geotextile with a cement-sand dry powder \tcr{infill}. \tcr{The/a} critical manufacturing step is a pressurised \tcr{dry} powder injection  through \tcr{280} parallel \tcr{5mm ID} aluminium tubes. This process is highly volatile and tube blockages occur creating regions of critically under-filled material. Additional failure mechanisms within the other manufacturing steps have been identified \tcr{including stitch drops etc}.
@@ -265,6 +260,13 @@ Bottom           & PP                                                           
         
 \chapter{Initial Experiments}
 
+\begin{figure}
+    \centering
+    \includegraphics[width=0.9\textwidth]{figures/initial_experiments/dial_far.jpg}
+    \caption{Mechanical surface profile measurement setup}
+    \label{fig:my_label}
+\end{figure}
+
 \begin{figure}[ht]
     \begin{subfigure}{\textwidth}
         \centering
@@ -309,22 +311,30 @@ A qualitative investigation of the CCX production line was carried out in order 
 
 \section{Background (and possible usages linking back to sect 2\&3)}
 
-This chapter covers the experimental investigation of the cement filled and stitched fabric that was carried out in order to quantify the effects of the identified defects on the rear surface profile of the material web after cement filling \tcb{mention the squashing of the roller here?}. The surface profile contains indications of the stitching and the cement fill as well as information about the NW web surface. This investigation continues the initial investigation as detailed in chapter ??. 
+This chapter covers the experimental investigation of the cement filled and stitched fabric that was carried out in order to quantify the effects of the identified defects on the rear surface profile of the material web after cement filling \tcb{mention the squashing of the roller here?}. The surface profile contains indications of the stitching and the cement fill as well as information about the NW web surface. This investigation continues from the initial investigation as detailed in chapter ??. 
+
+The key aim of this investigation was to compress the large profile measurement datasets into a set of concise parameters which convey all of the relevant information about the surface profile in terms of the material quality.
 
 \section{Bench-top Experimental Setup}
 
-\begin{figure}[ht]
+A static scanner unit was used to generate high-resolution scans of material samples which contained known defects. Samples were collected with no known defects, stitching defects, and underfill defects.
+
+Figure \ref{fig:highres_setup} shows the scanning unit used to generate the surface profiles. Due to the scanning bed being small, the samples had to be folded to fit, as such masses were placed on the samples to ensure maximum material contact to the bed. 
+
+The scanning unit came equipped with two stepper motor driven linear rails to facilitate precise movement of the scanning head over a sample. A software system was developed to interface with both stepper motor drivers and the laser scanner in order to automate scanning surfaces. The documented source code for automatically scanning surface areas and converting the raw data into a single Matlab or Python array file are now available alongside the scanner for future use by the structures laboratory.
+
+\begin{figure}[h!]
     \begin{subfigure}{0.5\textwidth}
         \centering
         % include first image
-        \includegraphics[width=\linewidth]{figures/profile_measure/highres_setup_overview.jpg}  
+        \includegraphics[width=0.8\linewidth]{figures/profile_measure/highres_setup_overview.jpg}  
         %\caption{front}
         \label{fig:highres_setup_front}
     \end{subfigure}
     \begin{subfigure}{0.5\textwidth}
         \centering
         % include second image
-        \includegraphics[width=\linewidth]{figures/profile_measure/highres_setup_top.jpg}  
+        \includegraphics[width=0.8\linewidth]{figures/profile_measure/highres_setup_top.jpg}  
         %\caption{top}
         \label{fig:highres_setup_top}
     \end{subfigure}
@@ -332,27 +342,36 @@ This chapter covers the experimental investigation of the cement filled and stit
     \label{fig:highres_setup}
 \end{figure}
 
-\begin{figure}
-    \centering
-    \includegraphics[width=\textwidth]{figures/profile_measure/typical_scatter.pdf}
-    \caption{Raw data from a typical rear surface profile scan from the high-resolution scanner (FBN\_02\_01)}
-    \label{fig:typical_scatter}
-\end{figure}
-
 \subsection{Surface Calibration}
 % bed surface calibration scan
-\begin{figure}
-    \centering
-    \includegraphics{figures/profile_measure/calib_surf.pdf}
+\begin{figure}[h!]
+    \begin{subfigure}{0.5\textwidth}
+        \centering
+        % include first image
+        \includegraphics[width=\textwidth]{figures/profile_measure/typical_scatter.pdf}
+    \caption{Typical surface scan}
+    \label{fig:typical_scatter}
+    \end{subfigure}
+    \begin{subfigure}{0.5\textwidth}
+        \centering
+        % include second image
+        \includegraphics[width=\textwidth]{figures/profile_measure/calib_surf.pdf}
     \caption{Empty bed calibration scan}
     \label{fig:empty_calib}
+    \end{subfigure}
+    \caption{Raw input surface scans}
+    \label{fig:rot_correction}
 \end{figure}
+
+
+
+
 % calibration surface scan angle correction
-\begin{figure}[ht]
+\begin{figure}[h!]
     \begin{subfigure}{\textwidth}
         \centering
         % include first image
-        \includegraphics[width=\linewidth]{figures/profile_measure/uncalib_line.pdf}  
+        \includegraphics[width=0.8\linewidth]{figures/profile_measure/uncalib_line.pdf}  
         \caption{without rotation correction}
         \label{fig:uncalib_line}
     \end{subfigure}
@@ -360,34 +379,80 @@ This chapter covers the experimental investigation of the cement filled and stit
     \begin{subfigure}{\textwidth}
         \centering
         % include second image
-        \includegraphics[width=\linewidth]{figures/profile_measure/calib_line.pdf}  
+        \includegraphics[width=0.8\linewidth]{figures/profile_measure/calib_line.pdf}  
         \caption{with rotation correction}
         \label{fig:calib_line}
     \end{subfigure}
     \caption{Scanning head rotation correction}
     \label{fig:rot_correction}
 \end{figure}
-
+\pagebreak
 \subsection{Data Structuring}
 
-\begin{figure}
-    \centering
-    \includegraphics[width=0.9\textwidth]{figures/profile_measure/typical_nw_cross.pdf}
-    \caption{Typical single scan line of raw NW surface}
-    \label{fig:raw_nw_cross}
+% \begin{figure}
+%     \centering
+%     \includegraphics[width=0.9\textwidth]{figures/profile_measure/typical_nw_cross.pdf}
+%     \caption{Typical single scan line of raw NW surface}
+%     \label{fig:raw_nw_cross}
+% \end{figure}
+
+\begin{figure}[h!]
+    \begin{subfigure}{0.5\textwidth}
+        \centering
+        % include second image
+        \includegraphics[width=\linewidth]{figures/profile_measure/typical_rear_mesh.pdf}  
+        \caption{no known defects}
+        \label{fig:calib_line}
+    \end{subfigure}
+    \begin{subfigure}{0.5\textwidth}
+        \centering
+        % include second image
+        \includegraphics[width=\linewidth]{figures/profile_measure/fbu_01_01_top.pdf}  
+        \caption{large area underfill}
+        \label{fig:calib_line}
+    \end{subfigure}
+    \newline
+    \begin{subfigure}{0.5\textwidth}
+        \centering
+        % include second image
+        \includegraphics[width=\linewidth]{figures/profile_measure/fbu_01_02_top.pdf}  
+        \caption{single tube underfill}
+        \label{fig:calib_line}
+    \end{subfigure}
+    \begin{subfigure}{0.5\textwidth}
+        \centering
+        % include second image
+        \includegraphics[width=\linewidth]{figures/profile_measure/fbs_06_01_top.pdf}  
+        \caption{multiple stitch drop and catch}
+        \label{fig:calib_line}
+    \end{subfigure}
+    \caption{Example defect surface scans (COULD REMOVE AXES ALLTOGETER?}
+    \label{fig:rot_correction}
 \end{figure}
+
+\newpage
+
+    
+\section{Profile Parameterisation}
+
+The raw surface provides no insight into the structure of the underlying material. In order to draw conclusions about
 
 \begin{figure}
     \centering
-    \includegraphics{figures/profile_measure/typical_rear_mesh.pdf}
-    \caption{A typical surface mesh (FBN\_02\_01)}
-    \label{fig:my_label}
+    \includegraphics[width=0.6\textwidth,trim={8cm 25cm 8cm 28cm},clip]{figures/profile_measure/parameterisation_sketch.jpg}
+    \caption{Current Bump parameterisation}
 \end{figure}
+The current parameterisation transforms any given bump to the following parameterisation (See figure above):
+\begin{itemize}
+    \item $\theta_1$: absolute left trough height
+    \item $\theta_2$: bump width
+    \item $\theta_3$: trough height difference
+    \item $\theta_4$: relative height difference from trough average height to height at midpoint of bump 
+\end{itemize}
 
-\pagebreak
 \section{Raw Laser Line Image Processing}
 
-\begin{figure}[ht!]
+\begin{figure}[h!]
     \centering
     \includegraphics[width=\textwidth,trim={0 5cm 0 5cm},clip]{figures/profile_measure/temp_height_measure.pdf}
     \caption{Raw Laser Line Image Processing}
@@ -402,21 +467,21 @@ This process transforms each image into a calibrated estimate of the material su
     ie $(\text{column}, \text{row}) \rightarrow (x',z')$. This requires taking into account the laser plane to camera geometry, and a simple grid calibration in the plane of the laser can be used to generate static calibration constants.
     \item transform world coordinates into material coordinates: $(x',z') \rightarrow (x,y,z)$. This requires consideration of the laser plane to material surface geometry and a correspondence between the image acquisition time and the roller movement speed/position. \tcr{Note, we will likely average over the displacement of each measurement in the longitudinal ($y$) direction for simplicity}
 \end{itemize}
-    
-    \section{Profile Parameterisation}
-        \begin{figure}
-            \centering
-            \includegraphics[width=\textwidth,trim={0 5cm 0 5cm},clip]{figures/profile_measure/temp_parameterise.pdf}
-            \caption{Profile Parameterisation}
-        \end{figure}
-        This process transforms each set of surface measurement points into a set of parameters corresponding to the bumps/stitch tracks on the surface.
+
+
+\begin{figure}
+    \centering
+    \includegraphics[width=\textwidth,trim={0 5cm 0 5cm},clip]{figures/profile_measure/temp_parameterise.pdf}
+    \caption{Profile Parameterisation}
+\end{figure}
+This process transforms each set of surface measurement points into a set of parameters corresponding to the bumps/stitch tracks on the surface.
         
-        \begin{itemize}
-            \item Compute stitch track locations 
-            \item compute observed bump parameters $\pmb{\theta}^*_{ij}$
-        \end{itemize}
+\begin{itemize}
+    \item Compute stitch track locations 
+    \item compute observed bump parameters $\pmb{\theta}^*_{ij}$
+\end{itemize}
         
-        note that $\pmb{\theta}_{ij}$ corresponds to the $i$-th bump along the surface, at the $j$-th location in the longitudinal direction. also $\pmb{\theta} = [\theta_1,\theta_2,\ldots ,\theta_n]^T$ as some vector of parameters.
+note that $\pmb{\theta}_{ij}$ corresponds to the $i$-th bump along the surface, at the $j$-th location in the longitudinal direction. also $\pmb{\theta} = [\theta_1,\theta_2,\ldots ,\theta_n]^T$ as some vector of parameters.
         
         The parameters describe elements of the bumps such as:
         \begin{itemize}
@@ -432,22 +497,47 @@ This process transforms each image into a calibrated estimate of the material su
         
         \tcr{note also that the further discretisation of the surface achieved by paramterisation does not necessarily have to be confined to bumps, but currently this seems like the most sensible unit size due to each bump containing all of the information of the material at that local region}
         
-        \subsection{Current parameterisation}
-            \begin{figure}
-                \centering
-                \includegraphics[width=0.6\textwidth,trim={8cm 25cm 8cm 28cm},clip]{figures/profile_measure/parameterisation_sketch.jpg}
-                \caption{Current Bump parameterisation}
-            \end{figure}
-            The current parameterisation transforms any given bump to the following parameterisation (See figure above):
-            \begin{itemize}
-                \item $\theta_1$: absolute left trough height
-                \item $\theta_2$: bump width
-                \item $\theta_3$: trough height difference
-                \item $\theta_4$: relative height difference from trough average height to height at midpoint of bump 
-            \end{itemize}
-            \tcr{one key downside to this parameterisation is that it will contain a significant amount of noise from the fluffiness and just assume it is the bump height. A better parameterisation that should not compromise simplicity too much is in the pipeline as this method does not give very good results on the bump relative height front}
+
+
 
 \chapter{Automatic Defect Detection}
+
+The investigation in the previous chapters indicated that, although the measured parameters are continuous variables, there are also regions within the material that are defective. These defects are binary states, being present or not. It is crucial to identify and highlight defective sections of material as, depending on the defect, the section of material will at least need remedial work, or in the worst case, must be cut out as waste material. Additionally, certain defects must be identified in real-time, is required on the production line to resolve the defective state.
+
+A system has been developed to identify defective sections of material based on the local parameter measurements. The identification a given defect in the material is performed through a statistical analysis of the local parameters. A parameter set has two trained parameter generation models, one representing the non-defective state, and the other representing the defective state. The likelihood of generating the observed parameters from both models are compared, and the model with the highest likelihood is the selected. Additionally, a simple defect state decision confidence is given by the difference between the likelihood of the chosen model from the other model. 
+
+This system is superior to a direct parametric bounding to identify defective states as the failure criteria are not dependent on manually selected values, but only on the model training data, thus the more training data, the more accurate the decision boundaries will become. The only manually selected value is the decision confidence, which can be tuned to move the final decision boundary.
+
+A pilot implementation of this system has been developed to detect and locate the presence of dropped stitches in the material web from a surface profile measurement.
+
+\section{Concept}
+
+For some observed parameters $\alpha = [\alpha_1, \dots, \alpha_n]^T$ we suggest that there exists a stochastic generator function $f$ from which these parameters are drawn:
+
+\[ \alpha \sim f 
+\]
+
+See Figure \ref{fig:defect_detect_overview} for an overview of the system
+
+\begin{figure}
+    \centering
+    \includegraphics[width=\textwidth]{figures/defect_detect/overview.jpg}
+    \caption{Overview of the defect detection system}
+    \label{fig:defect_detect_overview}
+\end{figure}
+
+
+\section{Stitch Drop Detection}
+
+\begin{figure}
+    \centering
+    \includegraphics[width=\textwidth]{figures/defect_detect/stitch_failure.pdf}
+    \caption{Stitch track failure confidence}
+    \label{fig:defect_detect_overview}
+\end{figure}
+
+
+
     \section{Profile Generation Model}
         We propose that $\pmb{\theta}$ (some bump parameterisation) is a random variable with
             \[ \pmb{\theta} \sim f(\pmb{\beta}) \]
@@ -497,9 +587,63 @@ This process transforms each image into a calibrated estimate of the material su
             By discretising our surface to individual bump units, the implicit assumption is made that the bump units contain all of the relevant information for that region of the surface.
         \subsection{Noise/measurement resolution}
             All testing and development to this point has been done with the very high precision data provided by the static scanner (0.1mm $x$ and $\sim$0.5mm $y$). The minimum required resolution for the online system to draw statistically significant conclusions is unknown
-            
+
 \chapter{QC Analysis Parametric Framework}
+
+This chapter reviews the work carried out to create a framework through which Concrete Canvas can carry out product quality analysis of the CCX material and production line. 
+
+The main motivation for this work was the discovery that many useful data sources relating to the production of CCX material are currently piped into a sparse set of containers, such as notebooks or excel spreadsheets. This system is sufficient to perform basic data manipulation and analysis within a given source, but to carry out any substantial cross-source analysis is unwieldy due to the large volume of unrelated data. 
+
+The framework proposed provides the necessary structure to pipe all data sources into a single relational database with an attached software interface, which unifies the data according to its relevant location on the produced material web rather than its time-stamp, and relates data sources according to a parametric dependence hierarchy which takes into account the order and links between production and measurement processes throughout the product's life-cycle. 
+
+Without this framework, the best possible analysis would only be able to take into account the temporal relationship of data and any flat correlations between them. See Figure for a diagrammatic representation of this process.
+\begin{figure}[ht]
+\begin{subfigure}{\textwidth}
+  \centering
+  % include first image
+  \includegraphics[width=\linewidth]{figures/qc_system/time_space_trans.jpg}  
+  \caption{Time-space transformation}
+  \label{fig:sub-first}
+\end{subfigure}
+\newline
+\begin{subfigure}{\textwidth}
+  \centering
+  % include second image
+  \includegraphics[width=\linewidth]{figures/qc_system/para_hier_dep.jpg}  
+  \caption{Parametric Dependence Hierarchy}
+  \label{fig:sub-second}
+\end{subfigure}
+\caption{Put your caption here}
+\label{fig:qc_framework}
+\end{figure}
+
+\section{Time-space Transformation}
+
+For any data source, a time series representation is trivial to produce. If a given measurement has a time-stamp, the data can be ordered accordingly. For individual sources, this is the logical frame to analyse the data, but when multiple sources from along the production process (and after production) are compared, significant temporal skew becomes an issue. For example, using a temporal frame, a profile measurement and a extruder temperature reading taken at the same moment would be directly compared, but there is potentially tens of meters of material separating them meaning significant correlation could be lost. For a more informed comparison, a real-time estimate of the effective length of final material web between various sources must be made. This will tie any reading to the cross section of produced material which it corresponds to. 
+
+This is achievable for online readings though a conveyance model, which takes into account a utilisation factor: the quantity of each raw material (and intermediate product) that goes into the final product. The non-woven fabric will have an approximately one-to-one correspondence, whereas the yarn and cement utilisation depend directly on the stitching machine parameters which dictate the form of the final web, but simple estimates of these parameters can be drawn. 
+
+The second consideration of the conveyance model is then to estimate the effective length of final material web between various measurement sources. Again for the non-woven, this is simply the length of fabric web between each source. The same is true for yarn except any length must be transformed by the utilisation factor. For the powder and extrudate, approximations of the volume of product within the transportation pipes must be made based on various readings. 
+
+The more developed the conveyance model, the more accurate the location unification will be. But a very simple static model will still be a substantial improvement over a temporal model, as readings at the front and the back of the line will be separated appropriately.
+
+A dynamic conveyance model is in development, but insufficient work has been carried out to produce a formal realisation.
+
+\section{Parametric Dependence Hierarchy}
+
+Assuming that the incoming data sources have the appropriate spacial unification, there is still no inter-parametric dependence. This means that any trend analysis of parameters can only consider direct correlations between them. The parametric dependence hierarchy provides a logical structure to store and interface with parameters that contains information of the dependence between them in terms of the production process.
+
+The structure of any complex production line is a unidirectional process tree, with many source nodes representing raw input materials, and a number of intermediate nodes which represent processes that combine, modify or measure the incoming material, which lead to a final sink node representing any processes carried out on the finished product. The assumption of the parametric dependence hierarchy is that parameters of a process in the production line can depend only on parameters of earlier processes and not later processes. This significantly reduces the number of possible parameter correlations, and so provides a much more considered foundation to develop parameter inference functions. It also provides a natural investigation pathway for identified issues within materials that works backwards along the production line. For example, if a new type of defect is found by the surface profile, the state and trend of the parameters in the defective material will be considered first from the injection process, then the stitching process, and finally the raw input parameters. This simplifies the process of identifying the root cause of defects when they emerge.
 \chapter{Future Work}
+
+See figure below for the future analysis pipeline of the aforementioned QC Analysis Framework.
+
+\begin{figure}
+    \centering
+    \includegraphics[width=\textwidth]{figures/future_work/qc_future.jpg}
+    \caption{Future work of QC system}
+    \label{fig:my_label}
+\end{figure}
 \chapter{Conclusions}
 
 %Sets the bibliography style to IEEE and imports the 
